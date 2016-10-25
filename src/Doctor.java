@@ -9,7 +9,7 @@
  */
 public class Doctor {
 
-    // Create the constants
+    // Create the constants to be used
     private int col;
     private int row;
 

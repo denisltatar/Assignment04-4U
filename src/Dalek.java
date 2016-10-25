@@ -26,10 +26,24 @@ public class Dalek {
         this.row = theRow;
     }
 
-//    public advanceTowards(Doctor doc) {
-//        if () {
-//        }
-//    }
+    /**
+     * Method that moves the Dalek towards the doctor
+     *
+     * @param doctor the doctor, the character which the Dalek must move towards
+     */
+    public void advancedTowards(Doctor doctor) {
+        if (doctor.getRow() > this.row) {
+            this.row++;
+        } else if (doctor.getRow() < this.getRow()) {
+            this.row--;
+        }
+        if (doctor.getCol() > this.col) {
+            this.col++;
+        } else if (doctor.getCol() < this.col) {
+            this.col--;
+        }
+    }
+
     /**
      * Return the row number of the Dalek character
      *
@@ -48,16 +62,20 @@ public class Dalek {
         return this.col;
     }
 
+    /**
+     * Method that tell whether two Daleks collide
+     */
     // Create the method here but then add your if statements within the main class 
     public void crash() {
         dalekCrash = true;
     }
 
     /**
-     * Check if the Dalek has crashed
+     * Check if the Dalek has crashed (True or False)
      *
-     * @return the
-     * ****************************************************************
+     * @return the boolean that determines whether if the Dalek has crashed or
+     * not
+     *
      */
     public boolean hasCrashed() {
         return dalekCrash;

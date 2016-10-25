@@ -46,17 +46,7 @@ public class Game {
             board.putPeg(Color.GREEN, doctor.getRow(), doctor.getCol());
 
             // DALEK ACTIONS
-
-
-
-
-
-
-
-
-
-
-
+            // Add all the actions here in chronological order
             // CHECK CRASHES: if Daleks has crashed or not with each other or the Doctor
             // If Dalek1 has crashed with Dalek2
             if (dalek1.getRow() == dalek2.getRow() && dalek1.getRow() == dalek2.getRow()) {
