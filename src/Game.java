@@ -32,16 +32,24 @@ public class Game {
         // IF DALEKS LAND ON EACH WHEN GAME STARTS!
         while (dalek1.getRow() == dalek2.getRow() && dalek1.getCol() == dalek2.getCol()) {
             dalek1 = new Dalek((int) (Math.random() * 12), (int) (Math.random() * 12));
-            board.putPeg(Color.YELLOW, dalek1.getRow(), dalek1.getCol());
+            board.putPeg(Color.BLACK, dalek1.getRow(), dalek1.getCol());
         }
-
-
+        while (dalek1.getRow() == dalek3.getRow() && dalek1.getRow() == dalek3.getCol()) {
+            dalek1 = new Dalek((int) (Math.random() * 12), (int) (Math.random() * 12));
+            board.putPeg(Color.BLACK, dalek1.getRow(), dalek1.getCol());
+        }
+        while (dalek2.getRow() == dalek3.getRow() && dalek2.getCol() == dalek3.getCol()) {
+            dalek2 = new Dalek((int) (Math.random() * 12), (int) (Math.random() * 12));
+            board.putPeg(Color.BLACK, dalek2.getRow(), dalek2.getCol());
+        }
         board.putPeg(Color.GREEN, doctor.getRow(), doctor.getCol());
-        board.putPeg(Color.YELLOW, dalek1.getRow(), dalek1.getCol());
-        board.putPeg(Color.YELLOW, dalek2.getRow(), dalek2.getCol());
-        board.putPeg(Color.YELLOW, dalek3.getRow(), dalek3.getCol());
+        board.putPeg(Color.BLACK, dalek1.getRow(), dalek1.getCol());
+        board.putPeg(Color.BLACK, dalek2.getRow(), dalek2.getCol());
+        board.putPeg(Color.BLACK, dalek3.getRow(), dalek3.getCol());
         // Put a message on the board
+        board.displayMessage("Goal: To have all three Daleks crash!");
         board.displayMessage("Please click the board to move your Doctor in green!");
+
 
 
         // Get a click response from the user
@@ -58,20 +66,26 @@ public class Game {
             // DALEK ACTIONS
             // Add all the actions here in chronological order
             // Make the Daleks move 
-            if (dalek1.hasCrashed() == false && dalek2.hasCrashed() == false && dalek3.hasCrashed() == false) {
+            if (dalek1.hasCrashed() == false) {
                 // Have Dalek one move towards the doctor
                 board.removePeg(dalek1.getRow(), dalek1.getCol());
                 dalek1.advancedTowards(doctor);
-                board.putPeg(Color.YELLOW, dalek1.getRow(), dalek1.getCol());
+            }
+
+            if (dalek2.hasCrashed() == false) {
                 // Have Dalek two move towards the doctor
                 board.removePeg(dalek2.getRow(), dalek2.getCol());
                 dalek2.advancedTowards(doctor);
-                board.putPeg(Color.YELLOW, dalek2.getRow(), dalek2.getCol());
+            }
+
+            if (dalek3.hasCrashed() == false) {
                 // Have Dalek three move towards the doctor
                 board.removePeg(dalek3.getRow(), dalek3.getCol());
                 dalek3.advancedTowards(doctor);
-                board.putPeg(Color.YELLOW, dalek3.getRow(), dalek3.getCol());
             }
+            board.putPeg(Color.black, dalek1.getRow(), dalek1.getCol());
+            board.putPeg(Color.black, dalek2.getRow(), dalek2.getCol());
+            board.putPeg(Color.black, dalek3.getRow(), dalek3.getCol());
 
 
             // CHECK CRASHES: if Daleks has crashed or not with each other or the Doctor
@@ -87,19 +101,27 @@ public class Game {
                 dalek1.crash();
                 dalek3.crash();
                 // Put a red peg where the two crashed
-                board.putPeg(Color.RED, dalek1.getRow(), dalek1.getCol());
+                board.putPeg(Color.RED, dalek3.getRow(), dalek3.getCol());
             }
             // If Dalek 2 and 3 crash
             if (dalek2.getRow() == dalek3.getRow() && dalek2.getCol() == dalek3.getCol()) {
                 dalek2.crash();
                 dalek3.crash();
                 // Put a red peg where the two crashed
-                board.putPeg(Color.RED, dalek1.getRow(), dalek1.getCol());
+                board.putPeg(Color.RED, dalek2.getRow(), dalek2.getCol());
             }
+
+            // If all three Dalek crash then print our to the user that they won!
+            if (dalek1.hasCrashed() == true && dalek2.hasCrashed() == true && dalek3.hasCrashed() == true) {
+                board.displayMessage("YOU WIN!");
+            }
+
             // If Dalek 1, 2, or 3 has crashed with the doctor // ADD ALL THE DALEKS IN THE IF LOOP!
             if (dalek1.getRow() == doctor.getRow() && dalek1.getCol() == doctor.getCol()
-                    && dalek2.getRow() == doctor.getRow() && dalek2.getCol() == doctor.getCol()
-                    && dalek3.getRow() == doctor.getRow() && dalek3.getCol() == doctor.getCol()) {
+                    || dalek2.getRow() == doctor.getRow() && dalek2.getCol() == doctor.getCol()
+                    || dalek3.getRow() == doctor.getRow() && dalek3.getCol() == doctor.getCol()) {
+                board.putPeg(Color.YELLOW, doctor.getRow(), doctor.getCol());
+                board.displayMessage("YOU LOST!");
                 // End the game
                 break;
             }
