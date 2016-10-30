@@ -27,8 +27,6 @@ public class Game {
         Dalek dalek3 = new Dalek((int) (Math.random() * 12), (int) (Math.random() * 12));
 
         // IF THE DOCTOR LANDS ON THE OTHER DALEK WHEN SPAWNING
-
-
         // IF DALEKS LAND ON EACH WHEN GAME STARTS!
         while (dalek1.getRow() == dalek2.getRow() && dalek1.getCol() == dalek2.getCol()) {
             dalek1 = new Dalek((int) (Math.random() * 12), (int) (Math.random() * 12));
@@ -50,8 +48,6 @@ public class Game {
         board.displayMessage("Goal: To have all three Daleks crash in order to win!");
         board.displayMessage("");
         board.displayMessage("Please click the board to move your Doctor in green!");
-
-
 
         // Get a click response from the user
         while (true) {
@@ -132,7 +128,6 @@ public class Game {
             board.putPeg(Color.black, dalek1.getRow(), dalek1.getCol());
             board.putPeg(Color.black, dalek2.getRow(), dalek2.getCol());
             board.putPeg(Color.black, dalek3.getRow(), dalek3.getCol());
-
 
 
 
