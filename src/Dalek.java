@@ -9,13 +9,13 @@
  */
 public class Dalek {
 
-    // Create the constants
+    // Create the constants to be used
     private int col;
     private int row;
     private boolean dalekCrash = false;
 
     /**
-     * A constructor to create the Daleks
+     * A constructor to create a Dalek
      *
      * @param theRow The row number of the Dalek character which are randomized
      * @param theCol The column number of the Dalek character which are
@@ -29,7 +29,7 @@ public class Dalek {
     /**
      * Method that moves the Dalek towards the doctor
      *
-     * @param doctor the doctor, the character which the Dalek must move towards
+     * @param doctor The doctor, the character which the Dalek must move towards
      */
     public void advancedTowards(Doctor doctor) {
         if (doctor.getRow() > this.row) {
@@ -45,27 +45,28 @@ public class Dalek {
     }
 
     /**
-     * Return the row number of the Dalek character
+     * Return the current row number of the Dalek character
      *
-     * @return the row number of the Dalek character
+     * @return the current row number of the Dalek character
      */
     public int getRow() {
+        // Return the current row number of the Dalek character
         return this.row;
     }
 
     /**
-     * Return the column number of the Dalek character
+     * Return the current column number of the Dalek character
      *
-     * @return the column number of the Dalek character
+     * @return the current column number of the Dalek character
      */
     public int getCol() {
+        // Return the current column number of the Dalek character
         return this.col;
     }
 
     /**
-     * Method that tell whether two Daleks collide
+     * Method that tells whether two Daleks have collided/crashed
      */
-    // Create the method here but then add your if statements within the main class 
     public void crash() {
         dalekCrash = true;
     }
@@ -73,11 +74,13 @@ public class Dalek {
     /**
      * Check if the Dalek has crashed (True or False)
      *
-     * @return the boolean that determines whether if the Dalek has crashed or
-     * not
+     * @return the boolean (true or flase) that determines whether if the Dalek
+     * has crashed (true) or not (false)
+     *
      *
      */
     public boolean hasCrashed() {
+        // Return whether the Dalek has crashed
         return dalekCrash;
     }
 }

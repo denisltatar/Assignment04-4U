@@ -27,18 +27,18 @@ public class Doctor {
     }
 
     /**
-     * Method used to move the doctor peg (if one space, move there, if not then
-     * generate randomly)
+     * Method used to move the doctor peg (if one space away, move there, if not
+     * then generate randomly to a new spot within the game board)
      *
      * @param newRow The row from the user's click being passed through
      * @param newCol The column from the user's click being passed through
      */
     public void move(int newRow, int newCol) {
-        // Integer for a random move ((Row)
+        // Integer for a random move (Row)
         int randomRow = (int) (Math.random() * 12);
         // Integer for a random move (Col)
         int randomCol = (int) (Math.random() * 12);
-        // if it's one spot away, then move there && if the spot is more than one teloport randomly
+        // If it's one spot away, then move there && if the spot is more than one teleport randomly within the game board   
         if (this.row - newRow <= 1 && this.row - newRow >= -1 && this.col - newCol <= 1 && this.col - newCol >= -1) {
             this.row = newRow;
             this.col = newCol;
@@ -46,25 +46,26 @@ public class Doctor {
             // Randomize the new spot of the doctor
             this.row = randomRow;
             this.col = randomCol;
-
         }
     }
 
     /**
-     * Return the row number of the doctor
+     * Return the current row number of the doctor
      *
-     * @return the row number of the doctor
+     * @return the current row number of the doctor
      */
     public int getRow() {
+        // Return the Doctor's current row position number
         return this.row;
     }
 
     /**
-     * Returns the column number of the doctor
+     * Returns the current column number of the doctor
      *
-     * @return the column number of the doctor
+     * @return the current column number of the doctor
      */
     public int getCol() {
+        // Return Doctor's current column position number
         return this.col;
     }
 }
