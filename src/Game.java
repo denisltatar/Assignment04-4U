@@ -65,7 +65,7 @@ public class Game {
         board.putPeg(Color.BLACK, dalek2.getRow(), dalek2.getCol());
         board.putPeg(Color.BLACK, dalek3.getRow(), dalek3.getCol());
         // Put a message on the board
-        board.displayMessage("Goal: Crash all three Daleks and don't be captured to win!");
+        board.displayMessage("Goal: Crash all three Daleks (the black pegs) to win!");
 
         // Main while loop of the entire game (where the magic happens)
         while (true) {
