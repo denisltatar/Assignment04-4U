@@ -9,7 +9,7 @@
  */
 public class Dalek {
 
-    // Create the constants to be used
+    // Create the constants to be used (instance variables)
     private int col;
     private int row;
     private boolean dalekCrash = false;
@@ -17,11 +17,12 @@ public class Dalek {
     /**
      * A constructor to create a Dalek
      *
-     * @param theRow The row number of the Dalek character which are randomized
-     * @param theCol The column number of the Dalek character which are
+     * @param theRow the row number of the Dalek character which are randomized
+     * @param theCol the column number of the Dalek character which are
      * randomized
      */
     public Dalek(int theRow, int theCol) {
+        // Initializing the instance variables
         this.col = theCol;
         this.row = theRow;
     }
@@ -29,14 +30,16 @@ public class Dalek {
     /**
      * Method that moves the Dalek towards the doctor
      *
-     * @param doctor The doctor, the character which the Dalek must move towards
+     * @param doctor the doctor, the character which the Dalek must move towards
      */
-    public void advancedTowards(Doctor doctor) {
+    public void advanceTowards(Doctor doctor) {
+        // Advancing towards the Doctor using the row numbers
         if (doctor.getRow() > this.row) {
             this.row++;
         } else if (doctor.getRow() < this.getRow()) {
             this.row--;
         }
+        // Advancing towards the Doctor using the column numbers
         if (doctor.getCol() > this.col) {
             this.col++;
         } else if (doctor.getCol() < this.col) {
@@ -50,7 +53,7 @@ public class Dalek {
      * @return the current row number of the Dalek character
      */
     public int getRow() {
-        // Return the current row number of the Dalek character
+        // Returns the current row number of the Dalek character
         return this.row;
     }
 
@@ -60,7 +63,7 @@ public class Dalek {
      * @return the current column number of the Dalek character
      */
     public int getCol() {
-        // Return the current column number of the Dalek character
+        // Returns the current column number of the Dalek character
         return this.col;
     }
 
@@ -68,6 +71,7 @@ public class Dalek {
      * Method that tells whether two Daleks have collided/crashed
      */
     public void crash() {
+        // The Dalek has crashed (set to true)
         dalekCrash = true;
     }
 
@@ -80,7 +84,7 @@ public class Dalek {
      *
      */
     public boolean hasCrashed() {
-        // Return whether the Dalek has crashed
+        // Return whether the Dalek has crashed or not
         return dalekCrash;
     }
 }
