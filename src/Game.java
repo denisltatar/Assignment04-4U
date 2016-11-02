@@ -34,8 +34,6 @@ public class Game {
             board.removePeg(doctor.getRow(), doctor.getCol());
             // Create a new location for the doctor
             doctor = new Doctor((int) (Math.random() * 12), (int) (Math.random() * 12));
-            // Place the Doctor in its new position
-            board.putPeg(Color.GREEN, doctor.getRow(), doctor.getCol());
         }
         // Doctor and Dalek 2
         while (doctor.getRow() == dalek2.getRow() && doctor.getCol() == dalek2.getCol()) {
@@ -43,8 +41,6 @@ public class Game {
             board.removePeg(doctor.getRow(), doctor.getCol());
             // Create a new location for the doctor
             doctor = new Doctor((int) (Math.random() * 12), (int) (Math.random() * 12));
-            // Place the Doctor in its new position
-            board.putPeg(Color.GREEN, doctor.getRow(), doctor.getCol());
         }
         // Doctor and Dalek 3
         while (doctor.getRow() == dalek3.getRow() && doctor.getCol() == dalek3.getCol()) {
@@ -52,8 +48,6 @@ public class Game {
             board.removePeg(doctor.getRow(), doctor.getCol());
             // Create a new location for the doctor
             doctor = new Doctor((int) (Math.random() * 12), (int) (Math.random() * 12));
-            // Place the Doctor in its new position
-            board.putPeg(Color.GREEN, doctor.getRow(), doctor.getCol());
         }
         // If the daleks land on each other, then respawn
         // Dalek 1 and Dalek 2
@@ -62,8 +56,6 @@ public class Game {
             board.removePeg(dalek1.getRow(), dalek1.getCol());
             // Create a new location for the Dalek 1
             dalek1 = new Dalek((int) (Math.random() * 12), (int) (Math.random() * 12));
-            // Place the Dalek 1 in its new position
-            board.putPeg(Color.BLACK, dalek1.getRow(), dalek1.getCol());
         }
         // Dalek 1 and Dalek 3
         while (dalek1.getRow() == dalek3.getRow() && dalek1.getRow() == dalek3.getCol()) {
@@ -71,8 +63,6 @@ public class Game {
             board.removePeg(dalek1.getRow(), dalek1.getCol());
             // Create a new location for the Dalek 1
             dalek1 = new Dalek((int) (Math.random() * 12), (int) (Math.random() * 12));
-            // Place the Dalek 1 in its new position
-            board.putPeg(Color.BLACK, dalek1.getRow(), dalek1.getCol());
         }
         // Dalek 2 and Dalek 3
         while (dalek2.getRow() == dalek3.getRow() && dalek2.getCol() == dalek3.getCol()) {
@@ -80,8 +70,6 @@ public class Game {
             board.removePeg(dalek2.getRow(), dalek2.getCol());
             // Create a new location for Dalek 2
             dalek2 = new Dalek((int) (Math.random() * 12), (int) (Math.random() * 12));
-            // Place Dalek 2 in its new location
-            board.putPeg(Color.BLACK, dalek2.getRow(), dalek2.getCol());
         }
 
         // Placing the pegs before the game physically starts!
